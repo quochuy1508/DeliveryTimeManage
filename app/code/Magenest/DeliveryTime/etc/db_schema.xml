@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="delivery_time" resource="default" engine="innodb" comment="Delivery Time">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="int" name="group_id" unsigned="true" nullable="false" identity="false"
+                default="0" comment="Customer Group ID"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" identity="false"
+                default="0" comment="Store ID"/>
+        <column xsi:type="json" name="working_time" nullable="true" comment="Working Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="DELIVERY_TIME_STORE_ID_STORE_STORE_ID" table="delivery_time"
+                    column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="DELIVERY_TIME_CUSTOMER_GROUP_ID_CUSTOMER_GROUP_CUSTOMER_GROUP_ID" table="delivery_time"
+                    column="group_id" referenceTable="customer_group" referenceColumn="customer_group_id" onDelete="CASCADE"/>
+<!--        <index referenceId="CUSTOMER_ENTITY_STORE_ID" indexType="btree">-->
+<!--            <column name="store_id"/>-->
+<!--        </index>-->
+<!--        <index referenceId="DELIVERY_TIME_GROUP_ID_STORE_STORE_ID" indexType="btree">-->
+<!--            <column name="store_id"/>-->
+<!--        </index>-->
+    </table>
+    <table name="quote" resource="default" engine="innodb">
+        <column xsi:type="text" name="delivery_comment" nullable="true" comment="Magenest Delivery Comment"/>
+        <column xsi:type="varchar" name="delivery_time" nullable="true" length="255" comment="Magenest Delivery Time"/>
+        <column xsi:type="date" name="delivery_date" nullable="true" comment="Magenest Delivery Date"/>
+        <column xsi:type="decimal" name="delivery_time_fee" nullable="true" comment="Custom Delivery Time Fee from webservice"/>
+    </table>
+    <table name="sales_order" resource="sales" engine="innodb" comment="Sales Flat Order">
+        <column xsi:type="text" name="delivery_comment" nullable="true" comment="Magenest Delivery Comment"/>
+        <column xsi:type="varchar" name="delivery_time" nullable="true" length="255" comment="Magenest Delivery Time"/>
+        <column xsi:type="date" name="delivery_date" nullable="true" comment="Magenest Delivery Date"/>
+        <column xsi:type="decimal" name="delivery_time_fee" nullable="true" comment="Custom Delivery Time Fee from webservice"/>
+    </table>
+</schema>

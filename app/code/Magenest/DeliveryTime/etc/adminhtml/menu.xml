@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magenest_DeliveryTime::menu" title="Delivery Time" module="Magenest_DeliveryTime" sortOrder="10" resource="Magenest_DeliveryTime::menu"/>
+<!--        <add id="Magenest_DeliveryTime::create" title="Create" module="Magenest_DeliveryTime" sortOrder="10" parent="Magenest_DeliveryTime::menu" action="custommenu/create/index" resource="Magenest_DeliveryTime::create"/>-->
+<!--        <add id="Magenest_DeliveryTime::delete" title="Delete" module="Magenest_DeliveryTime" sortOrder="20" parent="Magenest_DeliveryTime::menu" action="custommenu/delete/index" resource="Magenest_DeliveryTime::delete"/>-->
+        <add id="Magenest_DeliveryTime::manage" title="All Delivery Time" module="Magenest_DeliveryTime" sortOrder="10" parent="Magenest_DeliveryTime::menu" action="deliveryTime/index/index/" resource="Magenest_DeliveryTime::manage"/>
+    </menu>
+</config>

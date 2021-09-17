@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magenest_DeliveryTime::menu" title="Delivery Time Menu" sortOrder="10" >
+                    <resource id="Magenest_DeliveryTime::create" title="Create" sortOrder="50" />
+                    <resource id="Magenest_DeliveryTime::delete" title="Delete" sortOrder="100" />
+                    <resource id="Magenest_DeliveryTime::manage" title="All Delivery Time" sortOrder="150" />
+                </resource>
+                <resource id="Magenest_DeliveryTime::config" title="Config Delivery Time" sortOrder="200" />
+            </resource>
+        </resources>
+    </acl>
+</config>

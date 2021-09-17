@@ -1,0 +1,8 @@
+<!-- ko if: isDisplayedDeliveryTimeFeeTotal() -->
+<tr class="totals coupon-fee excl">
+    <th class="mark" colspan="1" scope="row" data-bind="text: delivery_time_fee"></th>
+    <td class="amount">
+        <span class="price" data-bind="text: getDeliveryTimeFeeTotal(), attr: {'data-th': delivery_time_fee}"></span>
+    </td>
+</tr>
+<!-- /ko →

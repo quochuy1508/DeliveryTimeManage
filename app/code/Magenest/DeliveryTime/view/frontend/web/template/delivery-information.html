@@ -1,0 +1,46 @@
+<!-- ko if: window.checkoutConfig.mpDtConfig.isEnabled -->
+<div class="delivery-information">
+    <div class="step-title" data-role="title" data-bind="i18n: 'Delivery Date'">Delivery Date</div>
+
+    <div class="delivery-date">
+        <div class="title">
+            <span data-bind="i18n: 'Delivery Date'"></span>
+        </div>
+        <div class="control">
+            <input type="text" readonly="readonly" data-bind="mpdatepicker: true, value: deliveryDate"
+                   name="delivery-date" id="mp-delivery-date"/>
+        </div>
+    </div>
+
+    <div class="delivery-time">
+        <div class="title">
+            <span data-bind="i18n: 'Delivery Time'"></span>
+        </div>
+        <div class="control">
+            <select class="select" name="delivery-time" id="mp-delivery-time"
+                    data-bind="
+                    value: deliveryTime,
+                    options: deliveryTimeOptions,
+                    optionsCaption: $t('-- Please select a delivery time--')"
+            ></select>
+        </div>
+    </div>
+
+    <!-- ko if: window.checkoutConfig.mpDtConfig.isEnabledDeliveryComment -->
+    <div class="delivery-comment">
+        <div class="title">
+            <span data-bind="i18n: 'Delivery Comment'"></span>
+        </div>
+        <div class="control">
+            <div class="input-box">
+                <textarea name="delivery-comment" id="mp-delivery-comment" rows="2"
+                          data-bind="value: deliveryComment"></textarea>
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+    <button class="remove-delivery-date" data-bind="click: removeDeliveryInformation">
+        Reset
+    </button>
+</div>
+<!-- /ko -->

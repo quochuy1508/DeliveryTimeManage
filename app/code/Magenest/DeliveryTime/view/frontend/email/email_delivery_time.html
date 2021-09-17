@@ -1,0 +1,29 @@
+<!--@subject Subject Of your email  @-->
+<!--@vars {
+"var this.getUrl($store, 'admin')":"Warehouse Account URL",
+"var customer.email":"Customer Email",
+"var customer.name":"Customer Name"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+<table>
+    <tr class="email-intro">
+        <td>
+            <p>
+                {{trans "Your custom message."}}
+                {{trans "Your custom message."}}
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                {{trans "Or if anything got you confused in shopping process?"}}
+                {{trans "Feel free to contact again to discuss problems you may have."}}
+                {{trans "Your satisfaction is the best product we desire to deliver."}}
+            </div>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}
